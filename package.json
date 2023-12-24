@@ -18,7 +18,8 @@
     "node-cputil": "^0.6.1",
     "node-thermal-printer": "^4.4.1",
     "receiptline": "^1.16.0",
-    "redis": "^4.6.12"
+    "redis": "^4.6.12",
+    "cputil": "file:packages/cputil"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

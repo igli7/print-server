@@ -1,8 +1,8 @@
 // Import necessary modules
 import * as Sentry from '@sentry/node';
 import cors from 'cors';
+import * as cputil from 'cputil';
 import express from 'express';
-import * as cputil from 'node-cputil';
 import * as redis from 'redis';
 
 // Import the existing router code here (or you can keep it in a separate file and import it)
@@ -284,7 +284,7 @@ app.use((req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
