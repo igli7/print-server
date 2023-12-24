@@ -184,7 +184,8 @@ app.post('/print', async (req, res) => {
   try {
     res.json({
       statusCode: '200 OK',
-      jobReady: jobIds.length > 0 ? true : false,
+      // jobReady: jobIds.length > 0 ? true : false,
+      jobReady: true,
       jobToken: JSON.stringify(jobIds),
       mediaTypes: ['application/vnd.star.starprnt'],
     });
@@ -199,9 +200,9 @@ app.get('/print', async (req, res) => {
   const jobIds = req.headers['x-star-token'];
 
   // Check if the printJobsToken is provided and valid
-  if (!jobIds) {
-    return res.status(400).json({ error: 'No print job token provided' });
-  }
+  // if (!jobIds) {
+  //   return res.status(400).json({ error: 'No print job token provided' });
+  // }
 
   let printJobs: string[];
   try {
@@ -228,7 +229,15 @@ app.get('/print', async (req, res) => {
   let convertedData;
   try {
     convertedData = await cputil.default.convertStarPrintMarkUp({
-      text: receipt,
+      // text: receipt,
+      text: ` ------------------------------------------------
+      [align: center]
+      Thank you! Have a great day!
+      [plain]
+      [font: b]
+      Powered by NexoServe.com
+      [plain]
+      [cut: feed; partial]`,
       contentType: cputil.default.StarContentType.STAR_VND_PRNT,
       printerType: cputil.default.StarPrinterType.THERMAL_3,
     });
